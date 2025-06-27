@@ -1,0 +1,290 @@
+[
+  {
+    "id": 1,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "info",
+    "action": "shift_start",
+    "timestamp": "2025-06-26T08:00:00Z"
+  },
+  {
+    "id": 2,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "spolocenska miesnost",
+    "action": "break_start",
+    "timestamp": "2025-06-26T10:30:00Z"
+  },
+  {
+    "id": 3,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "pulty",
+    "action": "break_end",
+    "timestamp": "2025-06-26T10:45:00Z"
+  },
+  {
+    "id": 4,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "info",
+    "action": "shift_end",
+    "timestamp": "2025-06-26T17:00:00Z"
+  },
+  {
+    "id": 5,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "info",
+    "action": "shift_start",
+    "timestamp": "2025-06-27T08:00:00Z"
+  },
+  {
+    "id": 6,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "spolocenska miesnost",
+    "action": "break_start",
+    "timestamp": "2025-06-27T10:30:00Z"
+  },
+  {
+    "id": 7,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "pulty",
+    "action": "break_end",
+    "timestamp": "2025-06-27T10:45:00Z"
+  },
+  {
+    "id": 8,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "info",
+    "action": "shift_end",
+    "timestamp": "2025-06-27T17:00:00Z"
+  },
+  {
+    "id": 9,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "info",
+    "action": "shift_start",
+    "timestamp": "2025-06-28T08:00:00Z"
+  },
+  {
+    "id": 10,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "spolocenska miesnost",
+    "action": "break_start",
+    "timestamp": "2025-06-28T10:30:00Z"
+  },
+  {
+    "id": 11,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "pulty",
+    "action": "break_end",
+    "timestamp": "2025-06-28T10:45:00Z"
+  },
+  {
+    "id": 12,
+    "EmployeeNumber": 123456789,
+    "name": "Samuel Stofik",
+    "location": "info",
+    "action": "shift_end",
+    "timestamp": "2025-06-28T17:00:00Z"
+  },
+  {
+    "id": 13,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "spolocenska miesnost",
+    "action": "shift_start",
+    "timestamp": "2025-06-26T14:00:00Z"
+  },
+  {
+    "id": 14,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "pulty",
+    "action": "break_start",
+    "timestamp": "2025-06-26T15:30:00Z"
+  },
+  {
+    "id": 15,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "info",
+    "action": "break_end",
+    "timestamp": "2025-06-26T15:45:00Z"
+  },
+  {
+    "id": 16,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "spolocenska miesnost",
+    "action": "shift_end",
+    "timestamp": "2025-06-26T22:00:00Z"
+  },
+  {
+    "id": 17,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "spolocenska miesnost",
+    "action": "shift_start",
+    "timestamp": "2025-06-27T14:00:00Z"
+  },
+  {
+    "id": 18,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "pulty",
+    "action": "break_start",
+    "timestamp": "2025-06-27T15:30:00Z"
+  },
+  {
+    "id": 19,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "info",
+    "action": "break_end",
+    "timestamp": "2025-06-27T15:45:00Z"
+  },
+  {
+    "id": 20,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "spolocenska miesnost",
+    "action": "shift_end",
+    "timestamp": "2025-06-27T22:00:00Z"
+  },
+  {
+    "id": 21,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "spolocenska miesnost",
+    "action": "shift_start",
+    "timestamp": "2025-06-28T14:00:00Z"
+  },
+  {
+    "id": 22,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "pulty",
+    "action": "break_start",
+    "timestamp": "2025-06-28T15:30:00Z"
+  },
+  {
+    "id": 23,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "info",
+    "action": "break_end",
+    "timestamp": "2025-06-28T15:45:00Z"
+  },
+  {
+    "id": 24,
+    "EmployeeNumber": 987654321,
+    "name": "Oliver Stofik",
+    "location": "spolocenska miesnost",
+    "action": "shift_end",
+    "timestamp": "2025-06-28T22:00:00Z"
+  },
+  {
+    "id": 25,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "pulty",
+    "action": "shift_start",
+    "timestamp": "2025-06-26T07:00:00Z"
+  },
+  {
+    "id": 26,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "info",
+    "action": "break_start",
+    "timestamp": "2025-06-26T12:00:00Z"
+  },
+  {
+    "id": 27,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "spolocenska miesnost",
+    "action": "break_end",
+    "timestamp": "2025-06-26T12:15:00Z"
+  },
+  {
+    "id": 28,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "pulty",
+    "action": "shift_end",
+    "timestamp": "2025-06-26T16:00:00Z"
+  },
+  {
+    "id": 29,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "pulty",
+    "action": "shift_start",
+    "timestamp": "2025-06-27T07:00:00Z"
+  },
+  {
+    "id": 30,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "info",
+    "action": "break_start",
+    "timestamp": "2025-06-27T12:00:00Z"
+  },
+  {
+    "id": 31,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "spolocenska miesnost",
+    "action": "break_end",
+    "timestamp": "2025-06-27T12:15:00Z"
+  },
+  {
+    "id": 32,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "pulty",
+    "action": "shift_end",
+    "timestamp": "2025-06-27T16:00:00Z"
+  },
+  {
+    "id": 33,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "pulty",
+    "action": "shift_start",
+    "timestamp": "2025-06-28T07:00:00Z"
+  },
+  {
+    "id": 34,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "info",
+    "action": "break_start",
+    "timestamp": "2025-06-28T12:00:00Z"
+  },
+  {
+    "id": 35,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "spolocenska miesnost",
+    "action": "break_end",
+    "timestamp": "2025-06-28T12:15:00Z"
+  },
+  {
+    "id": 36,
+    "EmployeeNumber": 112233445,
+    "name": "Anna Novak",
+    "location": "pulty",
+    "action": "shift_end",
+    "timestamp": "2025-06-28T16:00:00Z"
+  }
+]

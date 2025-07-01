@@ -8,7 +8,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="Login" options={{ headerShown: false }} />
         <Stack.Screen name="Home" options={{ headerShown: false }} />
-        <Stack.Screen name="ShiftChangePage" options={{ headerShown: false }} />
+        <Stack.Screen name="UserShiftPage" options={{ headerShown: false }} />
       </Stack>
     </SelectedDateProvider>
   );

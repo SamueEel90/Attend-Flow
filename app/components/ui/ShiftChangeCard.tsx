@@ -32,16 +32,16 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const cardBackground = clsx(
     'rounded-2xl p-5 mb-4 shadow-lg border-l-4',
     {
-      'bg-yellow-100 border-yellow-400': actionKey === 'break_start' || actionKey === 'break_end',
-      'bg-green-100 border-green-500': actionKey === 'shift_start',
-      'bg-red-100 border-red-500': actionKey === 'shift_end',
+      'bg-yellow-200 border-yellow-400': actionKey === 'break_start' || actionKey === 'break_end',
+      'bg-green-200 border-green-500': actionKey === 'shift_start',
+      'bg-red-200 border-red-500': actionKey === 'shift_end',
     }
   );
 
   const actionColor = clsx('font-semibold capitalize', {
-    'text-yellow-800': actionKey === 'break_start',
-    'text-yellow-900': actionKey === 'break_end',
-    'text-green-700': actionKey === 'shift_start',
+    'text-green-700': actionKey === 'break_start',
+    'text-red-800': actionKey === 'break_end',
+    'text-green-800': actionKey === 'shift_start',
     'text-red-700': actionKey === 'shift_end',
   });
 

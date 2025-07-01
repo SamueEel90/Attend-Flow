@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import SearchByName from './components/search/SearchByName';
 import ShiftChangeCard from './components/ui/ShiftChangeCard';
+import { useSelectedDate } from './context/SelectedDateContext';
 
 interface User {
   id: number;
@@ -11,14 +12,14 @@ interface User {
   name: string;
   location: string;
   action: string;
-  timestamp: string; // predpoklad: formát ISO napr. '2025-06-27T08:00:00'
+  timestamp: string; //'2025-06-27T08:00:00'
 }
 
 const Home = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [date, setDate] = useState(new Date());
-
+ 
+  const { date, setDate } = useSelectedDate();
   const selectedDay = date.toLocaleDateString('en-US', {
     weekday: 'long',
   });
@@ -36,7 +37,7 @@ const Home = () => {
     fetchUsers();
   }, []);
 
-  // Konvertuj dátum na porovnateľný formát (len dátumová časť)
+ 
   const selectedDateString = date.toISOString().split('T')[0]; // 'YYYY-MM-DD'
 
   const filteredUsers = users.filter((user) => {

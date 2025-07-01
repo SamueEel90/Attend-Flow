@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ShiftChangeCard from './components/ui/ShiftChangeCard';
+import { useSelectedDate } from './context/SelectedDateContext';
 
 interface User {
   id: number;
@@ -18,12 +19,22 @@ const ShiftChangePage = () => {
   const [userMoves, setUserMoves] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const { date } = useSelectedDate();
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const data = require('./users.json') as User[];
         const employeeNumber = parseInt(userId ?? '0');
-        const filtered = data.filter((u) => u.EmployeeNumber === employeeNumber);
+
+        const selectedDateString = date.toISOString().split('T')[0]; // 'YYYY-MM-DD'
+
+        // filtrovať podľa používateľa a dátumu z kontextu
+        const filtered = data.filter((u) => {
+          const userDateString = new Date(u.timestamp).toISOString().split('T')[0];
+          return u.EmployeeNumber === employeeNumber && userDateString === selectedDateString;
+        });
+
         setUserMoves(filtered);
       } catch (error) {
         console.error('Chyba pri načítaní JSON súboru:', error);
@@ -33,7 +44,7 @@ const ShiftChangePage = () => {
     };
 
     fetchUsers();
-  }, [userId]);
+  }, [userId, date]); // re-fetch aj pri zmene dátumu
 
   if (loading) {
     return (
@@ -55,13 +66,19 @@ const ShiftChangePage = () => {
         {userName}
       </Text>
 
-      <FlatList
-        className='mt-10'
-        data={userMoves}
-        keyExtractor={(item, index) => `${item.EmployeeNumber}-${index}`}
-        renderItem={({ item }) => <ShiftChangeCard user={item} />}
-        contentContainerStyle={{ paddingBottom: 20 }}
-      />
+      {userMoves.length === 0 ? (
+        <Text className="text-center text-greenPalette-200 italic mt-10">
+          Žiadne záznamy pre vybraný dátum.
+        </Text>
+      ) : (
+        <FlatList
+          className='mt-10'
+          data={userMoves}
+          keyExtractor={(item, index) => `${item.EmployeeNumber}-${index}`}
+          renderItem={({ item }) => <ShiftChangeCard user={item} />}
+          contentContainerStyle={{ paddingBottom: 20 }}
+        />
+      )}
     </SafeAreaView>
   );
 };

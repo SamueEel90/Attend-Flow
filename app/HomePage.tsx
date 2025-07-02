@@ -27,6 +27,10 @@ const Home = () => {
       }),
     [date]
   );
+  const selectedDateString = useMemo(
+    () => date.toISOString().split('T')[0],
+    [date]
+  );
 
   const fetchUsers = useCallback(async () => {
     try {
@@ -41,10 +45,7 @@ const Home = () => {
     fetchUsers();
   }, [fetchUsers]);
 
-  const selectedDateString = useMemo(
-    () => date.toISOString().split('T')[0],
-    [date]
-  );
+  
 
 const filteredUsers = useMemo(
   () =>
@@ -74,11 +75,12 @@ const filteredUsers = useMemo(
 
   return (
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }} className="bg-background px-4">
-      <View className="flex flex-row justify-center mt-20 mb-6 space-x-2">
-        <Text className="text-greenPalette-100 font-semibold text-4xl mb-2">
+      <View className="flex flex-col items-center justify-center mt-20 mb-6 space-x-2">
+        <Text className="text-greenPalette-100 font-semibold text-5xl mb-2">
           {selectedDay}
         </Text>
         <DateTimePicker
+      
           value={date}
           mode="date"
           display="default"
@@ -92,7 +94,7 @@ const filteredUsers = useMemo(
       <View>
         {sortedUsers.length === 0 ? (
           <Text className="text-center mt-4 text-greenPalette-200 italic">
-            Žiadne uzivatelske smeny
+            Žiadne používateľské zmeny
           </Text>
         ) : (
           sortedUsers.map((user) => (

@@ -79,17 +79,17 @@ const UserShiftPage = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-background px-4 py-4">
-      <Text className="text-greenPalette-100 text-2xl font-bold mb-2 text-center">
+      <Text className="text-greenPalette-200 text-3xl font-bold mb-2 text-center">
         EN: {userNumber}
       </Text>
-      <Text className="text-greenPalette-200 text-xl font-semibold mb-4 text-center">
+      <Text className="text-greenPalette-100 text-4xl font-semibold mb-4 text-center">
         {userName}
       </Text>
 
       <View className="mb-6 px-2 flex-row justify-around">
        
         <View className="flex-1 ml-2">
-          <Text className="text-greenPalette-100 text-lg font-semibold mb-2 text-center">        
+          <Text className="text-greenPalette-100 text-xl font-semibold mb-2 text-center">        
             Plán smeny
           </Text>
           {todaysShifts.length === 0 ? (
@@ -113,14 +113,14 @@ const UserShiftPage = () => {
               return (
                 <Text
                   key={index}
-                  className="text-greenPalette-200 text-base text-center mb-1"
+                  className="text-greenPalette-200 text-xl text-center mb-1"
                 >
                   {`${formattedStart} — ${formattedEnd}`}
                 </Text>
               );
             })
           )}
-            <Text className="text-greenPalette-200 text-base text-center mb-1">Prestávka: {employeeShifts?.shifts[0].break} minút</Text>
+            <Text className="text-greenPalette-200 text-xl text-center mb-1">Prestávka: {employeeShifts?.shifts[0].break} minút</Text>
         </View>
       </View>
 

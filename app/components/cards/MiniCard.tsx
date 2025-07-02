@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
 
@@ -29,44 +29,42 @@ const MiniCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
     minute: '2-digit',
   });
 
-  const cardBackground = clsx(
-    'rounded-2xl p-5 mb-4 shadow-lg border-l-4',
-    {
-      'bg-yellow-100 border-yellow-400': actionKey === 'break_start' || actionKey === 'break_end',
-      'bg-green-100 border-green-500': actionKey === 'shift_start',
-      'bg-red-100 border-red-500': actionKey === 'shift_end',
-    }
-  );
-
-  const actionColor = clsx('font-semibold capitalize tracking-wide', {
-    'text-yellow-700': actionKey === 'break_start',
-    'text-yellow-800': actionKey === 'break_end',
-    'text-green-700': actionKey === 'shift_start',
-    'text-red-700': actionKey === 'shift_end',
+  const borderColor = clsx({
+    'border-l-8 border-green-500': actionKey === 'shift_start',
+    'border-l-8 border-red-500': actionKey === 'shift_end',
+    'border-l-8 border-yellow-400': actionKey === 'break_start' || actionKey === 'break_end',
+    'border-l-8 border-greenPalette-500': !['shift_start', 'shift_end', 'break_start', 'break_end'].includes(actionKey),
   });
 
-  const label = 'text-sm text-gray-600 font-semibold tracking-wide';
-  const value = 'text-base text-gray-900 font-semibold';
+  const actionColor = clsx('text-2xl font-semibold capitalize tracking-wide', {
+    'text-yellow-200': actionKey === 'break_start' || actionKey === 'break_end',
+    'text-green-200': actionKey === 'shift_start',
+    'text-red-200': actionKey === 'shift_end',
+    'text-greenPalette-50': !['shift_start', 'shift_end', 'break_start', 'break_end'].includes(actionKey),
+  });
+
+  const label = 'text-base text-greenPalette-50 font-semibold tracking-wide';
+  const value = 'text-2xl text-greenPalette-50 font-bold';
 
   return (
-    <View className={cardBackground}>
-      <View className="flex-row justify-between mb-4">
+    <View className={clsx('bg-backgroundLight rounded-xl p-2 px-5 mb-2 shadow-md', borderColor)}>
+      <View className="flex-row justify-between mb-6">
         <View>
           <Text className={label}>Dátum</Text>
-          <Text className="text-base text-gray-800 font-semibold">{formattedDate}</Text>
+          <Text className={value}>{formattedDate}</Text>
         </View>
-        <View>
+        <View className="items-end">
           <Text className={label}>Čas</Text>
-          <Text className="text-base text-gray-800 font-semibold">{formattedTime}</Text>
+          <Text className={value}>{formattedTime}</Text>
         </View>
       </View>
 
-      <View className="space-y-3">
+      <View className="flex-row justify-between">
         <View>
           <Text className={label}>Miesto</Text>
           <Text className={value}>{user.location}</Text>
         </View>
-        <View>
+        <View className="items-end">
           <Text className={label}>Akcia</Text>
           <Text className={actionColor}>{user.action.replace('_', ' ')}</Text>
         </View>

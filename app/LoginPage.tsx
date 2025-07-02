@@ -36,7 +36,7 @@ const Login = () => {
         <TouchableOpacity
           className="bg-greenPalette-600 rounded-xl w-full h-14 mt-6"
           onPress={() => {
-            router.push('./Home');
+            router.push('./HomePage');
           }}
         >
           <Text className="text-center text-3xl font-bold my-auto text-white">

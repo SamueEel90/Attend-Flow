@@ -1,6 +1,7 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { getActionArrow } from '../../utils/getActionArrow';
 
 interface User {
   id: number;
@@ -15,7 +16,7 @@ interface ShiftChangeCardProps {
   user: User;
 }
 
-const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
+const MiniCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const actionKey = user.action.toLowerCase();
 
   const date = new Date(user.timestamp);
@@ -28,46 +29,47 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
     minute: '2-digit',
   });
 
-  const cardStyle = clsx(
-    'rounded-2xl p-5 mb-4 shadow border-x-8 bg-white',
-    {
-      'border-yellow-400': actionKey === 'break_start' || actionKey === 'break_end',
-      'border-green-500': actionKey === 'shift_start',
-      'border-red-500': actionKey === 'shift_end',
-    }
-  );
-
-  const actionTextColor = clsx('font-semibold capitalize tracking-wide', {
-    'text-yellow-800': actionKey === 'break_start' || actionKey === 'break_end',
-    'text-green-800': actionKey === 'shift_start',
-    'text-red-700': actionKey === 'shift_end',
+  const borderColor = clsx({
+    'border-l-8 border-green-500': actionKey === 'shift_start',
+    'border-l-8 border-red-500': actionKey === 'shift_end',
+    'border-l-8 border-yellow-400': actionKey === 'break_start' || actionKey === 'break_end',
+    'border-l-8 border-greenPalette-500': !['shift_start', 'shift_end', 'break_start', 'break_end'].includes(actionKey),
   });
 
-  const labelStyle = 'text- text-gray-600 font-medium';
-  const valueStyle = 'text-xl text-gray-900 font-semibold';
+  const actionColor = clsx('text-2xl font-semibold capitalize tracking-wide', {
+    'text-yellow-200': actionKey === 'break_start' || actionKey === 'break_end',
+    'text-green-200': actionKey === 'shift_start',
+    'text-red-200': actionKey === 'shift_end',
+    'text-greenPalette-50': !['shift_start', 'shift_end', 'break_start', 'break_end'].includes(actionKey),
+  });
 
-return (
-  <View className={cardStyle}>
-    <View className="flex-row justify-between items-center mb-4 border-b border-gray-300 pb-3">
-      <Text className="text-2xl font-semibold text-gray-800">{formattedDate}</Text>
-      <Text className="text-2xl font-semibold text-gray-700">{formattedTime}</Text>
+  const label = 'text-xl text-greenPalette-50 font-semibold tracking-wide';
+  const value = 'text-2xl text-greenPalette-50 font-bold';
+
+  const { arrow, arrowColorClass } = getActionArrow(actionKey);
+
+  return (
+    <View className={clsx('bg-backgroundLight rounded-xl p-6 mb-4 shadow-md', borderColor)}>
+      <View className="flex-row justify-between items-center mb-4 border-b border-greenPalette-700 pb-3">
+        <Text className="text-2xl font-semibold text-greenPalette-50">{formattedDate}</Text>
+        <Text className="text-2xl font-semibold text-greenPalette-50">{formattedTime}</Text>
+      </View>
+      <View className="flex flex-row justify-between">
+        <Text className="text-3xl font-bold text-greenPalette-50 mb-6">{user.name}</Text>
+        <Text className={clsx('text-6xl font-bold', arrowColorClass)}>{arrow}</Text>
+      </View>
+      <View className="flex-row justify-between mb-3">
+        <Text className={label}>Miesto</Text>
+        <Text className={value}>{user.location}</Text>
+      </View>
+      <View className="flex-row justify-between items-center">
+        <Text className={label}>Akcia</Text>
+        <View className="flex-row items-center space-x-3">
+          <Text className={actionColor}>{user.action.replace('_', ' ')}</Text>
+        </View>
+      </View>
     </View>
-    <Text className="text-2xl font-bold text-gray-900 mb-4">{user.name}</Text>
-    <View className="flex-row justify-between  border-b border-gray-200">
-      <Text className={labelStyle}>Action</Text>
-      <Text className={clsx(valueStyle, actionTextColor)}>
-        {user.action.replace('_', ' ')}
-      </Text>
-    </View>
-    <View className="flex-row justify-between  border-b border-gray-200">
-      <Text className={labelStyle}>Employee id</Text>
-      <Text className={valueStyle}>{user.EmployeeNumber}</Text>
-    </View>
-    <View className="flex-row justify-between py-0.5 border-b border-gray-200">
-      <Text className={labelStyle}>Location</Text>
-      <Text className={valueStyle}>{user.location}</Text>
-    </View>
-  </View>
-);
+  );
 };
-export default ShiftChangeCard;
+
+export default MiniCard;

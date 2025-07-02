@@ -11,7 +11,7 @@
     "id": 2,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "break_start",
     "timestamp": "2025-06-26T10:38:00Z"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "break_start",
     "timestamp": "2025-06-27T10:44:00Z"
   },
@@ -75,7 +75,7 @@
     "id": 10,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "break_start",
     "timestamp": "2025-06-28T10:41:00Z"
   },
@@ -99,7 +99,7 @@
     "id": 13,
     "EmployeeNumber": 987654321,
     "name": "Oliver Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "shift_start",
     "timestamp": "2025-06-26T14:13:00Z"
   },
@@ -123,7 +123,7 @@
     "id": 16,
     "EmployeeNumber": 987654321,
     "name": "Oliver Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "shift_end",
     "timestamp": "2025-06-26T22:17:00Z"
   },
@@ -131,7 +131,7 @@
     "id": 17,
     "EmployeeNumber": 987654321,
     "name": "Oliver Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "shift_start",
     "timestamp": "2025-06-27T14:10:00Z"
   },
@@ -155,7 +155,7 @@
     "id": 20,
     "EmployeeNumber": 987654321,
     "name": "Oliver Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "shift_end",
     "timestamp": "2025-06-27T22:12:00Z"
   },
@@ -163,7 +163,7 @@
     "id": 21,
     "EmployeeNumber": 987654321,
     "name": "Oliver Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "shift_start",
     "timestamp": "2025-06-28T14:08:00Z"
   },
@@ -187,7 +187,7 @@
     "id": 24,
     "EmployeeNumber": 987654321,
     "name": "Oliver Stofik",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "shift_end",
     "timestamp": "2025-06-28T22:19:00Z"
   },
@@ -211,7 +211,7 @@
     "id": 27,
     "EmployeeNumber": 112233445,
     "name": "Anna Novak",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "break_end",
     "timestamp": "2025-06-26T12:29:00Z"
   },
@@ -243,7 +243,7 @@
     "id": 31,
     "EmployeeNumber": 112233445,
     "name": "Anna Novak",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "break_end",
     "timestamp": "2025-06-27T12:29:00Z"
   },
@@ -275,7 +275,7 @@
     "id": 35,
     "EmployeeNumber": 112233445,
     "name": "Anna Novak",
-    "location": "Spoločenská miestnosť",
+    "location": "Spoločenska",
     "action": "break_end",
     "timestamp": "2025-06-28T12:28:00Z"
   },

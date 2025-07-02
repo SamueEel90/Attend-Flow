@@ -16,7 +16,7 @@ export default function MainScreen() {
 
       <TouchableOpacity
         className="bg-greenPalette-500 px-8 py-4 rounded-2xl active:opacity-80"
-        onPress={() => router.push('./Login')}
+        onPress={() => router.push('./LoginPage')}
       >
         <Text className="text-white text-2xl font-semibold">Go to Login</Text>
       </TouchableOpacity>

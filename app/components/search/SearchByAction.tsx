@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 const ACTIONS = [
   { label: 'Začiatok smeny', value: 'shift_start' },
-  { label: 'Prestávka', value: 'break' }, // zlúčené
+  { label: 'Prestávka', value: 'break' }, 
   { label: 'Koniec smeny', value: 'shift_end' },
 ];
 
@@ -19,7 +19,6 @@ const SearchByAction: React.FC<Props> = ({ selectedAction, onChange }) => {
 
   return (
     <View className="mb-4">
-      <Text className="text-greenPalette-100 text-center mb-2 font-semibold">Filtrovať podľa akcie</Text>
 
       <View className="flex-row justify-center   gap-2">
         {ACTIONS.map((action) => (

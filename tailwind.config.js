@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         background: '#1E1E24',
+        backgroundLight: '#2F2F36',
 
         // Pridané zelené odtiene
         greenPalette: {

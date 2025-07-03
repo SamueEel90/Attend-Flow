@@ -1,7 +1,7 @@
 import { EmployeeShifts } from '../types/ShiftTypes';
-import { getSelectedDateString } from './getSelectedDateString';
+import getSelectedDateString from './getSelectedDateString';
 
-export const getShiftsForSelectedDay = (
+const getShiftsForSelectedDay = (
   shifts: EmployeeShifts | null,
   date: Date
 ): string[] => {
@@ -27,3 +27,4 @@ export const getShiftsForSelectedDay = (
       }) ?? []
   );
 };
+export default getShiftsForSelectedDay;

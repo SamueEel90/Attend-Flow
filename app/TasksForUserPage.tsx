@@ -1,12 +1,36 @@
+import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
+
+import userTasksData from './dummyBackend/dummyDB/UserTasks.json';
 
 const TasksForUserPage = () => {
-    return (
-      <View>
-        <Text>TasksForUserPage</Text>
-      </View>
-    )
+  const { username } = useLocalSearchParams<{ username: string }>();
+
+  const user = userTasksData.find((u) => u.employee_name === username);
+
+  return (
+    <ScrollView className="flex-1 pt-20 bg-background p-4">
+      <Text className="text-2xl text-center font-bold mb-6 text-greenPalette-300">
+        Úlohy pre {username}
+      </Text>
+
+      {!user ? (
+        <Text className="text-red-400 text-lg">Užívateľ nenájdený.</Text>
+      ) : user.tasks.length === 0 ? (
+        <Text className="text-yellow-300 text-lg">Žiadne úlohy pre tohto užívateľa.</Text>
+      ) : (
+        user.tasks.map((task, index) => (
+          <View
+            key={index}
+            className="mb-4 p-4 border border-greenPalette-400 rounded-lg bg-greenPalette-900 shadow-md"
+          >
+            <Text className="text-greenPalette-100 text-lg">{task}</Text>
+          </View>
+        ))
+      )}
+    </ScrollView>
+  );
 };
 
-export default TasksForUserPage
+export default TasksForUserPage;

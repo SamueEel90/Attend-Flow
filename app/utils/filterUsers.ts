@@ -1,6 +1,6 @@
 import User from '../types/User';
 
-export const filterUsers = (
+const filterUsers = (
   users: User[],
   selectedDateString: string,
   searchTerm: string,
@@ -20,3 +20,4 @@ export const filterUsers = (
 
     return matchesDate && matchesSearch && matchesAction;
   });
+export default filterUsers;

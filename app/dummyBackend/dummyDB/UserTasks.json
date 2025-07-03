@@ -1,0 +1,21 @@
+[
+  {
+    "employee_number": 123456789,
+    "employee_name": "Samuel Stofik",
+    "tasks": [
+      "Skontrolovať skladové zásoby",
+      "Pripraviť tovar na regále",
+      "Upratať pracovisko",
+      "Komunikovať so zákazníkmi"
+    ]
+  },
+  {
+    "employee_number": 987654321,
+    "employee_name": "Oliver Stofik",
+    "tasks": [
+      "Vykonať kontrolu bezpečnosti",
+      "Aktualizovať dokumentáciu",
+      "Pomoc kolegovi pri inventúre"
+    ]
+  }
+]

@@ -4,287 +4,287 @@
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Info",
-    "action": "shift_start",
-    "timestamp": "2025-06-26T08:17:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-26T07:00:00Z"
   },
   {
     "id": 2,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Spoločenska",
-    "action": "break_start",
-    "timestamp": "2025-06-26T10:38:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-26T11:00:00Z"
   },
   {
     "id": 3,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Pulty",
-    "action": "break_end",
-    "timestamp": "2025-06-26T10:59:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-26T11:35:00Z"
   },
   {
     "id": 4,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Info",
-    "action": "shift_end",
-    "timestamp": "2025-06-26T17:19:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-26T14:00:00Z"
   },
   {
     "id": 5,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Info",
-    "action": "shift_start",
-    "timestamp": "2025-06-27T08:11:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-27T08:00:00Z"
   },
   {
     "id": 6,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Spoločenska",
-    "action": "break_start",
-    "timestamp": "2025-06-27T10:44:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-27T12:00:00Z"
   },
   {
     "id": 7,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Pulty",
-    "action": "break_end",
-    "timestamp": "2025-06-27T10:59:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-27T12:35:00Z"
   },
   {
     "id": 8,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Info",
-    "action": "shift_end",
-    "timestamp": "2025-06-27T17:13:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-27T15:00:00Z"
   },
   {
     "id": 9,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Info",
-    "action": "shift_start",
-    "timestamp": "2025-06-28T08:09:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-28T06:30:00Z"
   },
   {
     "id": 10,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Spoločenska",
-    "action": "break_start",
-    "timestamp": "2025-06-28T10:41:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-28T10:30:00Z"
   },
   {
     "id": 11,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Pulty",
-    "action": "break_end",
-    "timestamp": "2025-06-28T10:58:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-28T11:05:00Z"
   },
   {
     "id": 12,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
     "location": "Info",
-    "action": "shift_end",
-    "timestamp": "2025-06-28T17:18:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-28T13:30:00Z"
   },
   {
     "id": 13,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Spoločenska",
-    "action": "shift_start",
-    "timestamp": "2025-06-26T14:13:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-26T07:30:00Z"
   },
   {
     "id": 14,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Pulty",
-    "action": "break_start",
-    "timestamp": "2025-06-26T15:44:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-26T12:00:00Z"
   },
   {
     "id": 15,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Info",
-    "action": "break_end",
-    "timestamp": "2025-06-26T15:59:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-26T12:35:00Z"
   },
   {
     "id": 16,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Spoločenska",
-    "action": "shift_end",
-    "timestamp": "2025-06-26T22:17:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-26T15:00:00Z"
   },
   {
     "id": 17,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Spoločenska",
-    "action": "shift_start",
-    "timestamp": "2025-06-27T14:10:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-27T06:45:00Z"
   },
   {
     "id": 18,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Pulty",
-    "action": "break_start",
-    "timestamp": "2025-06-27T15:44:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-27T11:00:00Z"
   },
   {
     "id": 19,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Info",
-    "action": "break_end",
-    "timestamp": "2025-06-27T15:59:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-27T11:35:00Z"
   },
   {
     "id": 20,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Spoločenska",
-    "action": "shift_end",
-    "timestamp": "2025-06-27T22:12:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-27T14:00:00Z"
   },
   {
     "id": 21,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Spoločenska",
-    "action": "shift_start",
-    "timestamp": "2025-06-28T14:08:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-28T08:00:00Z"
   },
   {
     "id": 22,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Pulty",
-    "action": "break_start",
-    "timestamp": "2025-06-28T15:44:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-28T12:00:00Z"
   },
   {
     "id": 23,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Info",
-    "action": "break_end",
-    "timestamp": "2025-06-28T15:59:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-28T12:35:00Z"
   },
   {
     "id": 24,
     "EmployeeNumber": 987654321,
-    "name": "Oliver Stofik",
+    "name": "Evka Minarikova",
     "location": "Spoločenska",
-    "action": "shift_end",
-    "timestamp": "2025-06-28T22:19:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-28T15:00:00Z"
   },
   {
     "id": 25,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Pulty",
-    "action": "shift_start",
-    "timestamp": "2025-06-26T07:19:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-26T06:00:00Z"
   },
   {
     "id": 26,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Info",
-    "action": "break_start",
-    "timestamp": "2025-06-26T12:13:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-26T10:00:00Z"
   },
   {
     "id": 27,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Spoločenska",
-    "action": "break_end",
-    "timestamp": "2025-06-26T12:29:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-26T10:35:00Z"
   },
   {
     "id": 28,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Pulty",
-    "action": "shift_end",
-    "timestamp": "2025-06-26T16:18:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-26T13:00:00Z"
   },
   {
     "id": 29,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Pulty",
-    "action": "shift_start",
-    "timestamp": "2025-06-27T07:18:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-27T07:15:00Z"
   },
   {
     "id": 30,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Info",
-    "action": "break_start",
-    "timestamp": "2025-06-27T12:11:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-27T11:30:00Z"
   },
   {
     "id": 31,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Spoločenska",
-    "action": "break_end",
-    "timestamp": "2025-06-27T12:29:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-27T12:05:00Z"
   },
   {
     "id": 32,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Pulty",
-    "action": "shift_end",
-    "timestamp": "2025-06-27T16:13:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-27T14:15:00Z"
   },
   {
     "id": 33,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Pulty",
-    "action": "shift_start",
-    "timestamp": "2025-06-28T07:13:00Z"
+    "action": "začiatok_zmeny",
+    "timestamp": "2025-06-28T06:45:00Z"
   },
   {
     "id": 34,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Info",
-    "action": "break_start",
-    "timestamp": "2025-06-28T12:19:00Z"
+    "action": "začiatok_prestávky",
+    "timestamp": "2025-06-28T10:45:00Z"
   },
   {
     "id": 35,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Spoločenska",
-    "action": "break_end",
-    "timestamp": "2025-06-28T12:28:00Z"
+    "action": "koniec_prestávky",
+    "timestamp": "2025-06-28T11:20:00Z"
   },
   {
     "id": 36,
     "EmployeeNumber": 112233445,
-    "name": "Anna Novak",
+    "name": "Kika Janisova",
     "location": "Pulty",
-    "action": "shift_end",
-    "timestamp": "2025-06-28T16:17:00Z"
+    "action": "koniec_zmeny",
+    "timestamp": "2025-06-28T13:45:00Z"
   }
 ]

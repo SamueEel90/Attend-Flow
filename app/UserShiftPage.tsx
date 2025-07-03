@@ -7,8 +7,8 @@ import UserTasksCount from './components/UserTasksCount';
 import { useSelectedDate } from './context/SelectedDateContext';
 import { EmployeeShifts } from './types/ShiftTypes';
 import User from './types/User';
-import { filterCardInteractionsForUsers } from './utils/filterCardInteracionsForUser';
-import { getShiftsForSelectedDay } from './utils/getShiftsForSelectedDay';
+import filterCardInteractionsForUsers from './utils/filterCardInteracionsForUser';
+import getShiftsForSelectedDay from './utils/getShiftsForSelectedDay';
 
 const UserShiftPage = () => {
   const { userId } = useLocalSearchParams<{ userId: string }>();
@@ -84,7 +84,7 @@ const UserShiftPage = () => {
             </Text>
           )}
           <View className='flex items-center'>
-             <UserTasksCount />
+             <UserTasksCount username = {userName} />
           </View>
          
         </View>

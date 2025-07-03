@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 const ACTIONS = [
-  { label: 'Začiatok smeny', value: 'shift_start' },
-  { label: 'Prestávka', value: 'break' }, 
-  { label: 'Koniec smeny', value: 'shift_end' },
+  { label: 'Začiatok', value: 'začiatok_zmeny' },
+  { label: 'Prestávky', value: 'začiatok_prestávky' },
+  { label: 'Odchod', value: 'koniec_zmeny' },
 ];
 
 interface Props {

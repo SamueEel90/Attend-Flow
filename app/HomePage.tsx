@@ -6,8 +6,8 @@ import ShiftChangeCard from './components/cards/ShiftChangeCard';
 import SearchByAction from './components/search/SearchByAction';
 import SearchByName from './components/search/SearchByName';
 import { useSelectedDate } from './context/SelectedDateContext';
-import { filterUsers } from './utils/filterUsers';
-import { sortUsersByTime } from './utils/sortUsersByTime';
+import filterUsers from './utils/filterUsers';
+import sortUsersByTime from './utils/sortUsersByTime';
 interface User {
   id: number;
   EmployeeNumber: number;
@@ -24,7 +24,7 @@ const Home = () => {
   const [selectedAction, setSelectedAction] = useState('');
   const selectedDay = useMemo(
     () =>
-      date.toLocaleDateString('en-US', {
+      date.toLocaleDateString('sk-SK', {
         weekday: 'long',
       }),
     [date]
@@ -59,7 +59,7 @@ const sortedUsers = useMemo(
   return (
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }} className="bg-background px-4">
       <View className="flex flex-col items-center justify-center mt-20 mb-6 space-x-2">
-        <Text className="text-greenPalette-100 font-semibold text-5xl mb-2">
+        <Text className="text-greenPalette-100 font-semibold text-5xl mb-2 capitalize">
           {selectedDay}
         </Text>
         <DateTimePicker

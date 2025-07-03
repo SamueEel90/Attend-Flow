@@ -1,7 +1,7 @@
 import User from '../types/User';
-import { getSelectedDateString } from './getSelectedDateString';
+import getSelectedDateString from './getSelectedDateString';
 
-export const filterCardInteractionsForUsers = (
+const filterCardInteractionsForUsers = (
   data: User[],
   employeeNumber: number,
   date: Date
@@ -12,3 +12,4 @@ export const filterCardInteractionsForUsers = (
     return u.EmployeeNumber === employeeNumber && userDate === selectedDate;
   });
 };
+export default filterCardInteractionsForUsers;

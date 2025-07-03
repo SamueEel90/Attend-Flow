@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { getActionArrow } from '../../utils/getActionArrow';
+import getActionArrow from '../../utils/getActionArrow';
 
 interface User {
   id: number;

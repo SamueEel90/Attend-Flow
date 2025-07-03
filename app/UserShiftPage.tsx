@@ -4,51 +4,29 @@ import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MiniCard from './components/cards/MiniCard';
 import { useSelectedDate } from './context/SelectedDateContext';
-interface User {
-  id: number;
-  EmployeeNumber: number;
-  name: string;
-  location: string;
-  action: string;
-  timestamp: string;
-}
-
-interface Shift {
-  start: string;
-  end: string;
-  break: string;
-}
-
-interface EmployeeShifts {
-  employee_number: number;
-  employee_name: string;
-  shifts: Shift[];
-}
+import { EmployeeShifts } from './types/ShiftTypes';
+import User from './types/User';
+import { filterCardInteractionsForUsers } from './utils/filterCardInteracionsForUser';
+import { getShiftsForSelectedDay } from './utils/getShiftsForSelectedDay';
 
 const UserShiftPage = () => {
   const { userId } = useLocalSearchParams<{ userId: string }>();
   const [userMoves, setUserMoves] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
   const [employeeShifts, setEmployeeShifts] = useState<EmployeeShifts | null>(null);
+  const [loading, setLoading] = useState(true);
   const { date } = useSelectedDate();
-  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = require("./db/CardInteractions.json");
-        const shiftsData: EmployeeShifts[] = require("./db/UserShifts.json");
+        const rawData = require('./dummyBackend/dummyDB/CardInteractions.json');
+        const shiftsData: EmployeeShifts[] = require('./dummyBackend/dummyDB/UserShifts.json');
         const employeeNumber = parseInt(userId ?? '0');
-        const selectedDateString = date.toISOString().split('T')[0];
 
-        const filteredMoves = data.filter((u: User) => {
-          const userDateString = new Date(u.timestamp).toISOString().split('T')[0];
-          return u.EmployeeNumber === employeeNumber && userDateString === selectedDateString;
-        });
-        setUserMoves(filteredMoves);
-
-        const shiftsForUser = shiftsData.find(s => s.employee_number === employeeNumber) ?? null;
-        setEmployeeShifts(shiftsForUser);
+        setUserMoves(filterCardInteractionsForUsers(rawData, employeeNumber, date));
+        setEmployeeShifts(
+          shiftsData.find((s) => s.employee_number === employeeNumber) ?? null
+        );
       } catch (error) {
         console.error('Chyba pri načítaní JSON súboru:', error);
       } finally {
@@ -67,15 +45,10 @@ const UserShiftPage = () => {
     );
   }
 
-  const userName = userMoves[0]?.name;
-  const userNumber = userMoves[0]?.EmployeeNumber;
-
-  
-
-  const selectedDateString = date.toISOString().split('T')[0];
-  const todaysShifts = employeeShifts?.shifts.filter(shift =>
-    shift.start.startsWith(selectedDateString) || shift.end.startsWith(selectedDateString)
-  ) ?? [];
+  const userName = userMoves[0]?.name ?? 'Neznámy';
+  const userNumber = userMoves[0]?.EmployeeNumber ?? '';
+  const todaysShifts = getShiftsForSelectedDay(employeeShifts, date);
+  const breakDuration = employeeShifts?.shifts[0]?.break ?? null;
 
   return (
     <SafeAreaView className="flex-1 bg-background px-4 py-4">
@@ -87,40 +60,28 @@ const UserShiftPage = () => {
       </Text>
 
       <View className="mb-6 px-2 flex-row justify-around">
-       
         <View className="flex-1 ml-2">
-          <Text className="text-greenPalette-100 text-xl font-semibold mb-2 text-center">        
+          <Text className="text-greenPalette-100 text-xl font-semibold mb-2 text-center">
             Plán smeny
           </Text>
+
           {todaysShifts.length === 0 ? (
             <Text className="text-greenPalette-200 italic text-center">
               Žiadne plánované zmeny pre tento deň.
             </Text>
           ) : (
-            todaysShifts.map((shift, index) => {
-              const startDate = new Date(shift.start);
-              const endDate = new Date(shift.end);
-
-              const formattedStart = startDate.toLocaleTimeString(undefined, {
-                hour: '2-digit',
-                minute: '2-digit',
-              });
-              const formattedEnd = endDate.toLocaleTimeString(undefined, {
-                hour: '2-digit',
-                minute: '2-digit',
-              });
-
-              return (
-                <Text
-                  key={index}
-                  className="text-greenPalette-200 text-xl text-center mb-1"
-                >
-                  {`${formattedStart} — ${formattedEnd}`}
-                </Text>
-              );
-            })
+            todaysShifts.map((t, i) => (
+              <Text key={i} className="text-greenPalette-200 text-xl text-center mb-1">
+                {t}
+              </Text>
+            ))
           )}
-            <Text className="text-greenPalette-200 text-xl text-center mb-1">Prestávka: {employeeShifts?.shifts[0].break} minút</Text>
+
+          {breakDuration && (
+            <Text className="text-greenPalette-200 text-xl text-center mb-1">
+              Prestávka: {breakDuration} minút
+            </Text>
+          )}
         </View>
       </View>
 
@@ -130,11 +91,11 @@ const UserShiftPage = () => {
         </Text>
       ) : (
         <FlatList
-          className='mt-10'
+          className="mt-10"
           data={userMoves}
           keyExtractor={(item, index) => `${item.EmployeeNumber}-${index}`}
           renderItem={({ item }) => <MiniCard user={item} />}
-          />
+        />
       )}
     </SafeAreaView>
   );

@@ -1,7 +1,6 @@
 import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
-
 interface User {
   id: number;
   EmployeeNumber: number;

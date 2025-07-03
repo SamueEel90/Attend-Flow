@@ -1,4 +1,4 @@
-export function calculateBreakTime(startTime: string, endTime: string): number {
+const calculateBreakTime = (startTime: string, endTime: string): number => {
   // Assumes time strings are in "HH:mm" format (24-hour)
   const [startHour, startMinute] = startTime.split(':').map(Number);
   const [endHour, endMinute] = endTime.split(':').map(Number);
@@ -14,3 +14,4 @@ export function calculateBreakTime(startTime: string, endTime: string): number {
 
   return diff; // returns difference in minutes
 }
+export default calculateBreakTime;

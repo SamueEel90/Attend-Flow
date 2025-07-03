@@ -1,5 +1,5 @@
 
-export function getActionArrow(actionKey: string) {
+const getActionArrow = (actionKey: string) => {
   const key = actionKey.toLowerCase();
 
   let arrow = '';
@@ -25,3 +25,4 @@ export function getActionArrow(actionKey: string) {
 
   return { arrow, arrowColorClass };
 }
+export default getActionArrow

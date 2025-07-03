@@ -1,11 +1,13 @@
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { router } from 'expo-router';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import ShiftChangeCard from './components/cards/ShiftChangeCard';
 import SearchByAction from './components/search/SearchByAction';
 import SearchByName from './components/search/SearchByName';
 import { useSelectedDate } from './context/SelectedDateContext';
+import { filterUsers } from './utils/filterUsers';
+import { sortUsersByTime } from './utils/sortUsersByTime';
 interface User {
   id: number;
   EmployeeNumber: number;
@@ -32,46 +34,27 @@ const Home = () => {
     [date]
   );
 
-  const fetchUsers = useCallback(async () => {
-    try {
-      const data: User[] = (await import('./db/CardInteractions.json')).default;
-      setUsers(data);
-    } catch (error) {
-      console.error('Chyba pri načítaní používateľov:', error);
-    }
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const data: User[] = (await import('./dummyBackend/dummyDB/CardInteractions.json')).default;
+        setUsers(data);
+      } catch (error) {
+        console.error('Chyba pri načítaní používateľov:', error);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
-  useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
-
-  
-
 const filteredUsers = useMemo(
-  () =>
-    users.filter((user) => {
-      const userDate = new Date(user.timestamp).toISOString().split('T')[0];
-      const matchesDate = userDate === selectedDateString;
-      const matchesSearch = user.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const matchesAction =
-        selectedAction === '' ||
-        (selectedAction === 'break'
-          ? user.action === 'break_start' || user.action === 'break_end'
-          : user.action === selectedAction);
-      return matchesDate && matchesSearch && matchesAction;
-    }),
+  () => filterUsers(users, selectedDateString, searchTerm, selectedAction),
   [users, selectedDateString, searchTerm, selectedAction]
 );
-  const sortedUsers = useMemo(
-    () =>
-      [...filteredUsers].sort(
-        (a, b) =>
-          new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-      ),
-    [filteredUsers]
-  );
+const sortedUsers = useMemo(
+  () => sortUsersByTime(filteredUsers),
+  [filteredUsers]
+);
 
   return (
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }} className="bg-background px-4">

@@ -21,7 +21,7 @@ const MiniCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const formattedDate = date.toLocaleDateString(undefined, {
     day: '2-digit',
     month: 'short',
-    year: 'numeric',
+   
   });
   const formattedTime = date.toLocaleTimeString(undefined, {
     hour: '2-digit',

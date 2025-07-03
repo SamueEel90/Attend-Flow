@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MiniCard from './components/cards/MiniCard';
+import UserTasksCount from './components/UserTasksCount';
 import { useSelectedDate } from './context/SelectedDateContext';
 import { EmployeeShifts } from './types/ShiftTypes';
 import User from './types/User';
@@ -64,7 +65,7 @@ const UserShiftPage = () => {
           <Text className="text-greenPalette-100 text-xl font-semibold mb-2 text-center">
             Plán smeny
           </Text>
-
+          
           {todaysShifts.length === 0 ? (
             <Text className="text-greenPalette-200 italic text-center">
               Žiadne plánované zmeny pre tento deň.
@@ -82,6 +83,10 @@ const UserShiftPage = () => {
               Prestávka: {breakDuration} minút
             </Text>
           )}
+          <View className='flex items-center'>
+             <UserTasksCount />
+          </View>
+         
         </View>
       </View>
 

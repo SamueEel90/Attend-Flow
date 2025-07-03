@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
 import getActionArrow from '../../utils/getActionArrow';
+import UserTasksCount from '../UserTasksCount';
 
 interface User {
   id: number;
@@ -49,9 +50,13 @@ const MiniCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const { arrow, arrowColorClass } = getActionArrow(actionKey);
 
   return (
-    <View className={clsx('bg-backgroundLight rounded-xl p-6 mb-4 shadow-md', borderColor)}>
+    <View className={clsx('bg-backgroundLight rounded-xl p-4 mb-2 shadow-md', borderColor)}>
       <View className="flex-row justify-between items-center mb-4 border-b border-greenPalette-700 pb-3">
         <Text className="text-2xl font-semibold text-greenPalette-50">{formattedDate}</Text>
+        {actionKey === 'shift_start' && (
+          <UserTasksCount />
+        )}
+         
         <Text className="text-2xl font-semibold text-greenPalette-50">{formattedTime}</Text>
       </View>
       <View className="flex flex-row justify-between">

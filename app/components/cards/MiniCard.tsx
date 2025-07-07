@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
+
 interface User {
   id: number;
   EmployeeNumber: number;
@@ -21,51 +22,67 @@ const MiniCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const formattedDate = date.toLocaleDateString(undefined, {
     day: '2-digit',
     month: 'short',
-   
   });
   const formattedTime = date.toLocaleTimeString(undefined, {
     hour: '2-digit',
     minute: '2-digit',
   });
 
- const borderColor = clsx({
-  'border-l-8 border-green-500': actionKey === 'začiatok_zmeny',
-  'border-l-8 border-red-500': actionKey === 'koniec_zmeny',
-  'border-l-8 border-yellow-400': actionKey === 'začiatok_prestávky' || actionKey === 'koniec_prestávky',
-  'border-l-8 border-greenPalette-500': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
-});
+  // Definovanie farieb pozadia a bordúry podľa akcie
+  const backgroundColor = clsx({
+    'bg-green-800/20': actionKey === 'začiatok_zmeny',
+    'bg-red-800/20': actionKey === 'koniec_zmeny',
+    'bg-yellow-800/20': actionKey === 'začiatok_prestávky',
+    'bg-amber-800/20': actionKey === 'koniec_prestávky',
+    'bg-blue-800/20': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
+  });
 
-const actionColor = clsx('text-2xl font-semibold capitalize tracking-wide', {
-  'text-yellow-200': actionKey === 'začiatok_prestávky' || actionKey === 'koniec_prestávky',
-  'text-green-200': actionKey === 'začiatok_zmeny',
-  'text-red-200': actionKey === 'koniec_zmeny',
-  'text-greenPalette-50': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
-});
+  const borderColor = clsx({
+    'border-l-4 border-green-500': actionKey === 'začiatok_zmeny',
+    'border-l-4 border-red-500': actionKey === 'koniec_zmeny',
+    'border-l-4 border-yellow-500': actionKey === 'začiatok_prestávky',
+    'border-l-4 border-amber-500': actionKey === 'koniec_prestávky',
+    'border-l-4 border-blue-500': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
+  });
 
-  const label = 'text-base text-greenPalette-50 font-semibold tracking-wide';
-  const value = 'text-2xl text-greenPalette-50 font-bold';
+  const actionColor = clsx('text-base font-semibold capitalize tracking-wide', {
+    'text-yellow-400': actionKey === 'začiatok_prestávky' || actionKey === 'koniec_prestávky',
+    'text-green-400': actionKey === 'začiatok_zmeny',
+    'text-red-400': actionKey === 'koniec_zmeny',
+    'text-blue-400': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
+  });
 
   return (
-    <View className={clsx('bg-backgroundLight rounded-xl p-2 px-5 mb-2 shadow-md', borderColor)}>
+    <View className={clsx(
+      'rounded-lg p-4 mb-3 shadow-lg mx-2',
+      backgroundColor,
+      borderColor
+    )}>
+      {/* Date/Time Header */}
+      <View className="flex-row justify-between mb-2 pb-2 border-b border-gray-600">
+        <Text className="text-sm font-medium text-gray-400">Dátum</Text>
+        <Text className="text-sm font-medium text-gray-400">Čas</Text>
+      </View>
+      
       <View className="flex-row justify-between mb-2">
-        <View>
-          <Text className={label}>Dátum</Text>
-          <Text className={value}>{formattedDate}</Text>
-        </View>
-        <View className="items-end">
-          <Text className={label}>Čas</Text>
-          <Text className={value}>{formattedTime}</Text>
-        </View>
+        <Text className="text-xl font-bold text-white">{formattedDate}</Text>
+        <Text className="text-xl font-bold text-white">{formattedTime}</Text>
       </View>
 
-      <View className="flex-row justify-between">
+      {/* Location/Action Section */}
+      <View className="flex-row justify-between items-end">
         <View>
-          <Text className={label}>Lókacia</Text>
-          <Text className={value}>{user.location}</Text>
+        
+          <Text className="text-base font-semibold text-gray-400">
+            {user.location}
+          </Text>
         </View>
+        
         <View className="items-end">
-          <Text className={label}>Pípnutie</Text>
-          <Text className={actionColor}>{user.action.replace('_', ' ')}</Text>
+         
+          <Text className={actionColor}>
+            {user.action.replace('_', ' ')}
+          </Text>
         </View>
       </View>
     </View>

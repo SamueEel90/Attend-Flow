@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 const ACTIONS = [
-  { label: 'Začiatok', value: 'začiatok_zmeny' },
+  { label: 'Príchod', value: 'začiatok_zmeny' },
   { label: 'Prestávky', value: 'začiatok_prestávky' },
   { label: 'Odchod', value: 'koniec_zmeny' },
 ];

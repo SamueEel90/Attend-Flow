@@ -1,7 +1,8 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import { clsx } from 'clsx';
+import { router } from 'expo-router';
 import React from 'react';
-import { Text, View } from 'react-native';
-import getActionArrow from '../../utils/getActionArrow';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 interface User {
   id: number;
@@ -18,7 +19,8 @@ interface ShiftChangeCardProps {
 
 const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const actionKey = user.action.toLowerCase();
-
+  
+  // Date formatting
   const date = new Date(user.timestamp);
   const formattedDate = date.toLocaleDateString(undefined, {
     day: '2-digit',
@@ -28,48 +30,122 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
     hour: '2-digit',
     minute: '2-digit',
   });
-
-
-
-const borderColor = clsx({
-  'border-l-8 border-green-500': actionKey === 'začiatok_zmeny',
-  'border-l-8 border-red-500': actionKey === 'koniec_zmeny',
-  'border-l-8 border-yellow-400': actionKey === 'začiatok_prestávky' || actionKey === 'koniec_prestávky',
-  'border-l-8 border-greenPalette-500': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
-});
-
-const actionColor = clsx('text-2xl font-semibold capitalize tracking-wide', {
-  'text-yellow-200': actionKey === 'začiatok_prestávky' || actionKey === 'koniec_prestávky',
-  'text-green-200': actionKey === 'začiatok_zmeny',
-  'text-red-200': actionKey === 'koniec_zmeny',
-  'text-greenPalette-50': !['začiatok_zmeny', 'koniec_zmeny', 'začiatok_prestávky', 'koniec_prestávky'].includes(actionKey),
-});
-
-  const label = 'text-xl text-greenPalette-50 font-semibold tracking-wide';
-  const value = 'text-2xl text-greenPalette-50 font-bold';
-
-  const { arrow, arrowColorClass } = getActionArrow(actionKey);
+  
+  // Get status details based on action
+  const getStatusDetails = (): {
+    color: string;
+    icon: React.ComponentProps<typeof MaterialIcons>['name'];
+    label: string;
+    textColor: string;
+  } => {
+    switch(actionKey) {
+      case 'začiatok_zmeny':
+        return {
+          color: 'bg-green-800/20 border-l-4 border-green-500',
+          icon: 'login',
+          label: 'Začiatok zmeny',
+          textColor: 'text-green-400'
+        };
+      case 'koniec_zmeny':
+        return {
+          color: 'bg-red-800/20 border-l-4 border-red-500',
+          icon: 'logout',
+          label: 'Koniec zmeny',
+          textColor: 'text-red-400'
+        };
+      case 'začiatok_prestávky':
+        return {
+          color: 'bg-yellow-800/20 border-l-4 border-yellow-500',
+          icon: 'free-breakfast',
+          label: 'Začiatok prestávky',
+          textColor: 'text-yellow-400'
+        };
+      case 'koniec_prestávky':
+        return {
+          color: 'bg-amber-800/20 border-l-4 border-amber-500',
+          icon: 'coffee',
+          label: 'Koniec prestávky',
+          textColor: 'text-amber-400'
+        };
+      default:
+        return {
+          color: 'bg-blue-800/20 border-l-4 border-blue-500',
+          icon: 'more-time',
+          label: 'Activity',
+          textColor: 'text-blue-400'
+        };
+    }
+  };
+  
+  const status = getStatusDetails();
+ 
 
   return (
-    <View className={clsx('bg-backgroundLight rounded-xl p-2 mb-2 shadow-md', borderColor)}>
-      <View className="flex-row justify-between items-center mb-2 border-b border-gray-400 pb-2">
-        <Text className="text-2xl font-semibold text-greenPalette-50">{formattedDate}</Text>
+    <View className={clsx(
+      'rounded-lg p-4 mb-3 shadow-lg mx-2',
+      'transition-all duration-200 ease-in-out transform hover:scale-[1.01]',
+      status.color
+    )}>
+      {/* Header with status indicator */}
+      <View className="flex-row justify-between items-center mb-3 pb-2 border-b border-gray-700">
+        <View className="flex-row items-center">
+          <MaterialIcons 
+            name={status.icon} 
+            size={20} 
+            className={status.textColor} 
+          />
+          <Text className={clsx('ml-2 text-sm font-semibold uppercase tracking-wider', status.textColor)}>
+            {status.label}
+          </Text>
+        </View>
+        
+        <View className="bg-gray-700/50 px-2 py-1 rounded-full">
+          <Text className="text-xs text-gray-300 font-mono">
+            #{user.EmployeeNumber.toString().padStart(4, '0')}
+          </Text>
+        </View>
+      </View>
+      
+      {/* Main content */}
+      <View className="flex-row justify-between items-start mb-4">
+        <View>
+          <Text className="text-xl font-bold text-gray-100 mb-1">{user.name}</Text>
+          <View className="flex-row items-center">
+            <MaterialIcons name="place" size={16} className="text-gray-400 mr-1" />
+            <Text className="text-gray-400 text-xl">{user.location}</Text>
+          </View>
+        </View>
+        
+        <View className="items-end">
+          <Text className="text-gray-300 text-sm">{formattedDate}</Text>
+          <Text className="text-gray-100 text-xl font-bold">{formattedTime}</Text>
+        </View>
+      </View>
+      
+      {/* Action details */}
+      <View className={clsx(
+        'flex-row justify-between items-center p-3 rounded-lg',
+        'bg-gray-800/50 backdrop-blur-sm'
+      )}>
        
-         
-        <Text className="text-2xl font-semibold text-greenPalette-50">{formattedTime}</Text>
-      </View>
-      <View className="flex flex-row justify-between">
-        <Text className="text-3xl font-bold text-greenPalette-50 mb-2">{user.name}</Text>
-        <Text className={clsx('text-6xl font-bold', arrowColorClass)}>{arrow}</Text>
-      </View>
-      <View className="flex-row justify-between mb-2">
-        <Text className={label}>Miesto</Text>
-        <Text className={value}>{user.location}</Text>
-      </View>
-      <View className="flex-row justify-between items-center">
-        <Text className={label}>Akcia</Text>
-        <View className="flex-row items-center space-x-3">
-          <Text className={actionColor}>{user.action.replace('_', ' ')}</Text>
+        <View className="flex-row items-center">
+          <TouchableOpacity  onPress={() =>
+                router.push({
+                  pathname: './UserShiftPage',
+                  params: { userId: String(user.EmployeeNumber) },
+                })
+              }>
+          <Text className={clsx('font-semibold text-right mr-2 text-greenPalette-200')}>
+            Prehľad smeny
+          </Text>
+          </TouchableOpacity>
+          <View className={clsx('w-8 h-8 rounded-full items-center justify-center', status.textColor.replace('text', 'bg').replace('400', '400/20'))}>
+            <MaterialIcons 
+              name="arrow-forward" 
+              size={18} 
+              className={status.textColor} 
+            />
+          </View>
         </View>
       </View>
     </View>

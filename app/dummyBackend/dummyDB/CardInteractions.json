@@ -11,7 +11,7 @@
     "id": 2,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "začiatok_prestávky",
     "timestamp": "2025-06-26T11:00:00Z"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "začiatok_prestávky",
     "timestamp": "2025-06-27T12:00:00Z"
   },
@@ -75,7 +75,7 @@
     "id": 10,
     "EmployeeNumber": 123456789,
     "name": "Samuel Stofik",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "začiatok_prestávky",
     "timestamp": "2025-06-28T10:30:00Z"
   },
@@ -99,7 +99,7 @@
     "id": 13,
     "EmployeeNumber": 987654321,
     "name": "Evka Minarikova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "začiatok_zmeny",
     "timestamp": "2025-06-26T07:30:00Z"
   },
@@ -123,7 +123,7 @@
     "id": 16,
     "EmployeeNumber": 987654321,
     "name": "Evka Minarikova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "koniec_zmeny",
     "timestamp": "2025-06-26T15:00:00Z"
   },
@@ -131,7 +131,7 @@
     "id": 17,
     "EmployeeNumber": 987654321,
     "name": "Evka Minarikova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "začiatok_zmeny",
     "timestamp": "2025-06-27T06:45:00Z"
   },
@@ -155,7 +155,7 @@
     "id": 20,
     "EmployeeNumber": 987654321,
     "name": "Evka Minarikova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "koniec_zmeny",
     "timestamp": "2025-06-27T14:00:00Z"
   },
@@ -163,7 +163,7 @@
     "id": 21,
     "EmployeeNumber": 987654321,
     "name": "Evka Minarikova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "začiatok_zmeny",
     "timestamp": "2025-06-28T08:00:00Z"
   },
@@ -187,7 +187,7 @@
     "id": 24,
     "EmployeeNumber": 987654321,
     "name": "Evka Minarikova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "koniec_zmeny",
     "timestamp": "2025-06-28T15:00:00Z"
   },
@@ -211,7 +211,7 @@
     "id": 27,
     "EmployeeNumber": 112233445,
     "name": "Kika Janisova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "koniec_prestávky",
     "timestamp": "2025-06-26T10:35:00Z"
   },
@@ -243,7 +243,7 @@
     "id": 31,
     "EmployeeNumber": 112233445,
     "name": "Kika Janisova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "koniec_prestávky",
     "timestamp": "2025-06-27T12:05:00Z"
   },
@@ -275,7 +275,7 @@
     "id": 35,
     "EmployeeNumber": 112233445,
     "name": "Kika Janisova",
-    "location": "Spoločenska",
+    "location": "Personálne",
     "action": "koniec_prestávky",
     "timestamp": "2025-06-28T11:20:00Z"
   },

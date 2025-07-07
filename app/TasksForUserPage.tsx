@@ -11,8 +11,8 @@ const TasksForUserPage = () => {
 
   return (
     <ScrollView className="flex-1 pt-20 bg-background p-4">
-      <Text className="text-2xl text-center font-bold mb-6 text-greenPalette-300">
-        Úlohy pre {username}
+      <Text className="text-base text-center  mb-6 text-greenPalette-300">
+        Pre dokoncenie ulohy potihni ulohu dolava
       </Text>
 
       {!user ? (
@@ -23,9 +23,9 @@ const TasksForUserPage = () => {
         user.tasks.map((task, index) => (
           <View
             key={index}
-            className="mb-4 p-4 border border-greenPalette-400 rounded-lg bg-greenPalette-900 shadow-md"
+            className="mb-4 p-4 border-b border-greenPalette-400 rounded-lg bg-greenPalette-900 shadow-md"
           >
-            <Text className="text-greenPalette-100 text-lg">{task}</Text>
+            <Text className="text-greenPalette-50 text-xl">{task}</Text>
           </View>
         ))
       )}

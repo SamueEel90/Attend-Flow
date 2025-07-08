@@ -3,16 +3,9 @@ import { clsx } from 'clsx';
 import { router } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import User from '../../types/User';
+import formatToHHMM from '../../utils/formatHHMM';
 import setCardBackgroundColor from '../../utils/setCardBackgroundColor';
-
-interface User {
-  id: number;
-  EmployeeNumber: number;
-  name: string;
-  location: string;
-  action: string;
-  timestamp: string;
-}
 
 interface ShiftChangeCardProps {
   user: User;
@@ -24,12 +17,10 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
     day: '2-digit',
     month: 'short',
   });
-  const formattedTime = date.toLocaleTimeString(undefined, {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  const formattedTime = formatToHHMM(user.timestamp); // ⬅️ tu použitie helpera
 
   const status = setCardBackgroundColor(user.action);
+
 
   return (
     <View className={clsx(

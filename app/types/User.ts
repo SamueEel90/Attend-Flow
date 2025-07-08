@@ -1,4 +1,4 @@
-export default interface User {
+type User =  {
   id: number;
   EmployeeNumber: number;
   name: string;
@@ -6,3 +6,4 @@ export default interface User {
   action: string;
   timestamp: string;
 }
+export default User;

@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import userTasksData from '../dummyBackend/dummyDB/UserTasks.json';
+import userTasksData from '../../dummyBackend/dummyDB/UserTasks.json';
 
 type UserTasksCountProps = {
   username: string;
@@ -23,7 +23,7 @@ const UserTasksCount: React.FC<UserTasksCountProps> = ({ username }) => {
           })
         }
       >
-        <Text className="text-2xl font-semibold text-green-300 text-center">
+        <Text className="text-2xl font-semibold text-green-100 text-center">
           Naplánovane Úlohy: {tasksCount}
         </Text>
       </TouchableOpacity>

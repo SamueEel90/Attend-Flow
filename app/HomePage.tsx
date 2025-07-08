@@ -6,17 +6,10 @@ import SearchByAction from './components/search/SearchByAction';
 import SearchByName from './components/search/SearchByName';
 import OnFloorRedirectButton from './components/ui/OnFloorRedirectButton';
 import { useSelectedDate, } from './context/SelectedDateContext';
+import User from './types/User';
 import filterUsers from './utils/filterUsers';
 import sortUsersByTime from './utils/sortUsersByTime';
 
-interface User {
-  id: number;
-  EmployeeNumber: number;
-  name: string;
-  location: string;
-  action: string;
-  timestamp: string;
-}
 
 const Home = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -63,7 +56,7 @@ const Home = () => {
   return (
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }} className="bg-background px-4">
       <View className="flex flex-col items-center justify-center mt-20 mb-6">
-        <Text className="text-greenPalette-600 font-semibold text-5xl mb-2 capitalize">
+        <Text className="text-greenPalette-600 font-semibold text-4xl mb-2 capitalize">
           filiálka: 1420
         </Text>
         <Text className="text-greenPalette-100 font-semibold text-5xl mb-2 capitalize">

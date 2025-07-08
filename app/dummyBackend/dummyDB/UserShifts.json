@@ -22,7 +22,7 @@
   },
   {
     "employee_number": 987654321,
-    "employee_name": "Oliver Stofik",
+    "employee_name": "Kika Janisova",
     "shifts": [
       {
         "start": "2025-06-26T14:00:00Z",
@@ -43,7 +43,7 @@
   },
   {
     "employee_number": 112233445,
-    "employee_name": "Anna Novak",
+    "employee_name": "Evka Minarikova",
     "shifts": [
       {
         "start": "2025-06-26T07:00:00Z",

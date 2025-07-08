@@ -25,3 +25,4 @@ export const useSelectedDate = () => {
   }
   return context;
 };
+export default SelectedDateContext;

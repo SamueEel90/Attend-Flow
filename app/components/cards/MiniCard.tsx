@@ -2,16 +2,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { clsx } from 'clsx';
 import React from 'react';
 import { Text, View } from 'react-native';
+import User from '../../types/User';
 import setCardBackgroundColor from '../../utils/setCardBackgroundColor';
 
-interface User {
-  id: number;
-  EmployeeNumber: number;
-  name: string;
-  location: string;
-  action: string;
-  timestamp: string;
-}
 
 interface ShiftChangeCardProps {
   user: User;

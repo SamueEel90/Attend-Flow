@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MiniCard from './components/cards/MiniCard';
-import UserTasksCount from './components/UserTasksCount';
+import UserTasksCount from './components/ui/UserTasksCount';
 import { useSelectedDate } from './context/SelectedDateContext';
 import { EmployeeShifts } from './types/ShiftTypes';
 import User from './types/User';
@@ -79,11 +79,18 @@ const UserShiftPage = () => {
           )}
 
           {breakDuration && (
+
             <Text className="text-greenPalette-200 text-xl text-center mb-1">
               Prestávka: {breakDuration} minút
             </Text>
+            
           )}
           <View className='flex items-center'>
+            <View className= 'flex flex-row gap-2 justify-center'>
+              <Text className='text-xl text-greenPalette-200'>Differencia :</Text>
+              <Text className='text-xl text-greenPalette-200'>- 2 hodiny </Text>
+            </View>
+            
              <UserTasksCount username = {userName} />
           </View>
          

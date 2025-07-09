@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
-const usersRoute = require('./routes/employees'); 
+
+const employeesRoute = require('./routes/employees');
 
 const app = express();
 app.use(cors());
@@ -12,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-app.use('/api/users', usersRoute);
+app.use('/api/employees', employeesRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

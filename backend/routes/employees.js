@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const Employee = require('../models/Employee');
+const Employees = require('../models/Employee');
 
 router.get('/', async (req, res) => {
-  const users = await Employee.find();
-  res.json(users);
+  try {
+    const users = await Employees.find();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: 'Chyba pri načítaní používateľov', error });
+  }
 });
 
 module.exports = router;

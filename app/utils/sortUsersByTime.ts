@@ -1,8 +1,9 @@
-import User from '../types/User';
+import TCardInteraction from '../types/cardInteraction';
 
-const sortUsersByTime = (users: User[]): User[] =>
+const sortUsersByTime = (users: TCardInteraction[]): TCardInteraction[] =>
   [...users].sort(
     (a, b) =>
       new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
   );
+
 export default sortUsersByTime;

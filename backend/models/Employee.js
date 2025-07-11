@@ -8,7 +8,7 @@ const employeeSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['VOD', 'VO','VST','PPO','Admin'], 
+    enum: ['VOD', 'VO', 'VST', 'PPO', 'Admin'], 
     required: true,
   },
   username: {
@@ -18,6 +18,11 @@ const employeeSchema = new mongoose.Schema({
   department: {
     type: String,
     required: true,
+  },
+  employeeNumber: {
+    type: Number,
+    required: true,
+    unique: true,   // odporúčam aj unikátnosť, aby neboli duplicitné čísla
   },
 }, { collection: 'Employees' });
 

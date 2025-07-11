@@ -5,14 +5,13 @@ import ShiftChangeCard from './components/cards/ShiftChangeCard';
 import SearchByAction from './components/search/SearchByAction';
 import SearchByName from './components/search/SearchByName';
 import OnFloorRedirectButton from './components/ui/OnFloorRedirectButton';
-import { useSelectedDate, } from './context/SelectedDateContext';
-import User from './types/User';
+import { useSelectedDate } from './context/SelectedDateContext';
+import TCardInteraction from './types/cardInteraction';
 import filterUsers from './utils/filterUsers';
 import sortUsersByTime from './utils/sortUsersByTime';
 
-
 const Home = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [cardInteractions, setCardInteractions] = useState<TCardInteraction[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const { date, setDate } = useSelectedDate();
   const [selectedAction, setSelectedAction] = useState('');
@@ -31,26 +30,27 @@ const Home = () => {
   );
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchCardInteractions = async () => {
       try {
-        const data: User[] = (await import('./dummyBackend/dummyDB/CardInteractions.json')).default;
-        setUsers(data);
+        const response = await fetch(`http://192.168.100.11:5000/api/cardinteractions?date=${selectedDateString}`);
+        const data: TCardInteraction[] = await response.json();
+        setCardInteractions(data);
       } catch (error) {
-        console.error('Chyba pri načítaní používateľov:', error);
+        console.error('Chyba pri načítaní dát:', error);
       }
     };
 
-    fetchUsers();
-  }, []);
+    fetchCardInteractions();
+  }, [selectedDateString]);
 
-  const filteredUsers = useMemo(
-    () => filterUsers(users, selectedDateString, searchTerm, selectedAction),
-    [users, selectedDateString, searchTerm, selectedAction]
+  const filteredInteractions = useMemo(
+    () => filterUsers(cardInteractions, selectedDateString, searchTerm, selectedAction),
+    [cardInteractions, selectedDateString, searchTerm, selectedAction]
   );
 
-  const sortedUsers = useMemo(
-    () => sortUsersByTime(filteredUsers),
-    [filteredUsers]
+  const sortedInteractions = useMemo(
+    () => sortUsersByTime(filteredInteractions),
+    [filteredInteractions]
   );
 
   return (
@@ -80,14 +80,14 @@ const Home = () => {
       <SearchByAction selectedAction={selectedAction} onChange={setSelectedAction} />
 
       <View>
-        {sortedUsers.length === 0 ? (
+        {sortedInteractions.length === 0 ? (
           <Text className="text-center mt-4 text-greenPalette-200 italic">
             Žiadne používateľské zmeny
           </Text>
         ) : (
-          sortedUsers.map((user) => (
-            <View key={user.id}>
-              <ShiftChangeCard user={user} />
+          sortedInteractions.map((interaction) => (
+            <View key={interaction._id}>
+              <ShiftChangeCard user={interaction} />
             </View>
           ))
         )}

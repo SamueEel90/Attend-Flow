@@ -14,6 +14,10 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  department: {
+    type: String,
+    required: true,
+  },
   completed: {
     type: Boolean,
     default: false,

@@ -6,7 +6,7 @@ require('dotenv').config();
 const employeesRoute = require('./routes/employees');
 const cardInteractionsRoute = require('./routes/cardInteractions');
 const tasksRoute = require('./routes/tasks'); 
-
+const shiftsRoute = require('./routes/shifts');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -15,6 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
+app.use('/api/shifts', shiftsRoute);
 app.use('/api/employees', employeesRoute);
 app.use('/api/cardinteractions', cardInteractionsRoute);
 app.use('/api/tasks', tasksRoute);

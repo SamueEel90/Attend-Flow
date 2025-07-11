@@ -1,6 +1,5 @@
 type TCardInteraction = {
   _id: string;
-  shiftId: string;
   userId: string;
   employeeNumber: number;
   name: string;

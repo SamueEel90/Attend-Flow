@@ -15,7 +15,7 @@ export default function RootLayout() {
             <Stack.Screen name="HomePage" options={{ headerShown: false }} />
             <Stack.Screen name="UserShiftPage" options={{ headerShown: false }} />
             <Stack.Screen name="TasksForUserPage" options={{ headerShown: false }} />
-            <Stack.Screen name="OnFloorEmployeesPage" options={{ headerShown: false }} />
+            <Stack.Screen name="FloorplanPage" options={{ headerShown: false }} />
           </Stack>
         </SelectedDateProvider>
       </SelectedUserProvider>

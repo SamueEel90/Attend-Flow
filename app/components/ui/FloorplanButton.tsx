@@ -5,9 +5,9 @@ import { Text, TouchableOpacity } from 'react-native';
 const OnFloorRedirectButton: React.FC = () => {
     return (
       <TouchableOpacity onPress={() => {
-        router.push('./OnFloorEmployeesPage');
+        router.push('./FloorplanPage');
       }} className='flex items-center justify-center bg-greenPalette-400 h-10 rounded-xl px-3'>
-        <Text className='text-greenPalette-50 text-2xl'>Plocha</Text>
+        <Text className='text-greenPalette-50 text-2xl'>Floorplan</Text>
       </TouchableOpacity>
     );
 };

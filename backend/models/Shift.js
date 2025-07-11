@@ -1,28 +1,39 @@
 const mongoose = require('mongoose');
 
-const cardInteractionSchema = new mongoose.Schema({
+const shiftSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Employee',
+    ref: 'Employee',    
     required: true,
   },
-  shiftId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Shift',
-    required: true,
-  },
-  employeeNumber: Number,
-  name: String,
-  location: String,
-  action: {
+  username: {
     type: String,
-    enum: ['začiatok_zmeny', 'koniec_zmeny', 'prestávka', 'návrat'],
     required: true,
   },
-  timestamp: {
+  shiftDate: {
     type: Date,
-    default: Date.now,
+    required: true,
   },
-}, { collection: 'CardInteractions' });
+  shiftStart: {
+    type: Date,
+    required: true,
+  },
+  shiftEnd: {
+    type: Date,
+    required: true,
+  },
+  breakTime: {
+    type: Number,      
+    required: true,
+  },
+  arrivalConfirmed: {
+    type: Boolean,
+    default: false,
+  },
+  departureConfirmed: {
+    type: Boolean,
+    default: false,
+  },
+}, { collection: 'Shifts' });
 
-module.exports = mongoose.model('CardInteraction', cardInteractionSchema);
+module.exports = mongoose.model('Shift', shiftSchema);

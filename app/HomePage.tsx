@@ -4,7 +4,7 @@ import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import ShiftChangeCard from './components/cards/ShiftChangeCard';
 import SearchByAction from './components/search/SearchByAction';
 import SearchByName from './components/search/SearchByName';
-import OnFloorRedirectButton from './components/ui/OnFloorRedirectButton';
+import OnFloorRedirectButton from './components/ui/FloorplanButton';
 import { useSelectedDate } from './context/SelectedDateContext';
 import TCardInteraction from './types/cardInteraction';
 
@@ -85,7 +85,7 @@ const Home = () => {
       className=" bg-greenPalette-600 rounded-lg py-2 px-4 self-center mb-6"
     >
       <Text className="text-white font-semibold text-center">
-        {areAllMinimized ? 'Zbaliť' : 'Minimalizovať'}
+        {areAllMinimized ? 'Zbaliť' : 'Rozbaliť'}
       </Text>
     </TouchableOpacity>
       <View>

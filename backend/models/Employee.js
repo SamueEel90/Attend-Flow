@@ -22,7 +22,7 @@ const employeeSchema = new mongoose.Schema({
   employeeNumber: {
     type: Number,
     required: true,
-    unique: true,   // odporúčam aj unikátnosť, aby neboli duplicitné čísla
+    unique: true,   
   },
 }, { collection: 'Employees' });
 

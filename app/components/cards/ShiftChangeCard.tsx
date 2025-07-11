@@ -36,7 +36,7 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) 
   return (
     <View
       className={clsx(
-        'rounded-lg mb-3 shadow-lg mx-2 transition-all duration-10000 ease-in-out transform hover:scale-[1.01] p-4',
+        'rounded-lg mb-1  shadow-lg mx-2 transition-all duration-10000 ease-in-out transform hover:scale-[1.01] p-4',
         status.backgroundColor,
         status.borderColor,
         
@@ -59,7 +59,7 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) 
       </View>
 
       {isMinimized ? (
-        <View className="flex-row justify-between items-center">
+        <View className="flex-row justify-between items-center ">
           <Text className="text-xl font-bold text-white">{user.name} <Text  className=" font-bold text-greenPalette-600">{user.department}</Text></Text>
           <Text className="text-white text-xl font-bold">{formattedTime}</Text>
         </View>

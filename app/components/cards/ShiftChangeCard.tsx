@@ -1,7 +1,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { clsx } from 'clsx';
 import { router } from 'expo-router';
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useSelectedUser } from '../../context/SelectedUserContext';
 import TCardInteraction from '../../types/cardInteraction';
@@ -10,11 +10,11 @@ import setCardBackgroundColor from '../../utils/setCardBackgroundColor';
 
 interface ShiftChangeCardProps {
   user: TCardInteraction;
+  isMinimized: boolean;  // nový prop na minimalizáciu celej karty
 }
 
-const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
+const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) => {
   const { setSelectedUserId } = useSelectedUser();
-  const [isMinimized, setIsMinimized] = useState(false);
 
   const date = new Date(user.timestamp);
   const formattedDate = date.toLocaleDateString(undefined, {
@@ -26,27 +26,22 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
   const status = setCardBackgroundColor(user.action);
 
   const handlePress = () => {
-    setSelectedUserId(String(user.userId)); // nastavujeme ID do kontextu
+    setSelectedUserId(String(user.userId));
     router.push({
       pathname: './UserShiftPage',
       params: { userId: String(user.userId) },
     });
   };
 
-  const handleMinimize = () => {
-    setIsMinimized(prev => !prev);
-  };
-
   return (
     <View
       className={clsx(
-        'rounded-lg p-4 mb-3 shadow-lg mx-2',
-        'transition-all duration-200 ease-in-out transform hover:scale-[1.01]',
+        'rounded-lg mb-3 shadow-lg mx-2 transition-all duration-200 ease-in-out transform hover:scale-[1.01]',
         status.backgroundColor,
         status.borderColor,
-        isMinimized && 'p-2'
+        isMinimized ? 'p-2' : 'p-4'
       )}
-      style={{ width: isMinimized ? 'auto' : 'auto' }} 
+      style={{ width: 'auto' }}
     >
       <View className="flex-row justify-between items-center mb-3 pb-2 border-b border-gray-700">
         <View className="flex-row items-center">
@@ -60,15 +55,7 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
             {status.label}
           </Text>
         </View>
-        <TouchableOpacity onPress={handleMinimize} className="flex-row items-center">
-          <Text className="mr-1 text-gray-400">{isMinimized ? '' : ''}</Text>
-          <MaterialIcons
-            name={isMinimized ? "unfold-more" : "unfold-less"}
-            size={20}
-            className="text-gray-400"
-            style={{ color: 'gray' }}
-          />
-        </TouchableOpacity>
+       
       </View>
 
       {isMinimized ? (

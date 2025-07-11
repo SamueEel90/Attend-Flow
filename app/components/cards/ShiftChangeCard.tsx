@@ -10,7 +10,7 @@ import setCardBackgroundColor from '../../utils/setCardBackgroundColor';
 
 interface ShiftChangeCardProps {
   user: TCardInteraction;
-  isMinimized: boolean;  // nový prop na minimalizáciu celej karty
+  isMinimized: boolean;  
 }
 
 const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) => {
@@ -36,10 +36,10 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) 
   return (
     <View
       className={clsx(
-        'rounded-lg mb-3 shadow-lg mx-2 transition-all duration-200 ease-in-out transform hover:scale-[1.01]',
+        'rounded-lg mb-3 shadow-lg mx-2 transition-all duration-10000 ease-in-out transform hover:scale-[1.01] p-4',
         status.backgroundColor,
         status.borderColor,
-        isMinimized ? 'p-2' : 'p-4'
+        
       )}
       style={{ width: 'auto' }}
     >
@@ -60,14 +60,14 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) 
 
       {isMinimized ? (
         <View className="flex-row justify-between items-center">
-          <Text className="text-xl font-bold text-white">{user.name}</Text>
-          <Text className="text-white font-mono">{formattedTime}</Text>
+          <Text className="text-xl font-bold text-white">{user.name} <Text  className=" font-bold text-greenPalette-600">{user.department}</Text></Text>
+          <Text className="text-white text-xl font-bold">{formattedTime}</Text>
         </View>
       ) : (
         <>
           <View className="flex-row justify-between items-start mb-4">
             <View>
-              <Text className="text-xl font-bold text-gray-100 mb-1">{user.name}</Text>
+             <Text className="text-xl font-bold text-white">{user.name} <Text  className=" font-bold text-greenPalette-600">{user.department}</Text></Text>
               <View className="flex-row items-center">
                 <MaterialIcons name="place" size={16} className="text-gray-400 mr-1" />
                 <Text className="text-gray-400 text-xl">{user.location}</Text>

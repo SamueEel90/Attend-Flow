@@ -85,7 +85,7 @@ const Home = () => {
       className=" bg-greenPalette-600 rounded-lg py-2 px-4 self-center mb-6"
     >
       <Text className="text-white font-semibold text-center">
-        {areAllMinimized ? 'Rozbaliť' : 'Minimalizovať'}
+        {areAllMinimized ? 'Zbaliť' : 'Minimalizovať'}
       </Text>
     </TouchableOpacity>
       <View>

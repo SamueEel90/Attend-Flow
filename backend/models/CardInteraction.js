@@ -8,6 +8,7 @@ const cardInteractionSchema = new mongoose.Schema({
   },
   employeeNumber: Number,
   name: String,
+  department: String,
   location: String,
   action: {
     type: String,
@@ -17,6 +18,7 @@ const cardInteractionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  
 }, { collection: 'CardInteractions' });
 
 module.exports = mongoose.model('CardInteraction', cardInteractionSchema);

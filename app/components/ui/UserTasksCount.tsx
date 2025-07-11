@@ -1,31 +1,66 @@
 import { router } from 'expo-router';
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
+import { useSelectedUser } from '../../context/SelectedUserContext';
+import TTask from '../../types/task';
 
-import userTasksData from '../../dummyBackend/dummyDB/UserTasks.json';
 
-type UserTasksCountProps = {
-  username: string;
-};
+const UserTasksCount: React.FC = () => {
+  const { selectedUserId } = useSelectedUser();
+  const [tasks, setTasks] = useState<TTask[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-const UserTasksCount: React.FC<UserTasksCountProps> = ({ username }) => {
-  const user = userTasksData.find((u) => u.employee_name === username);
-  const tasksCount = user?.tasks.length ?? 0;
+  useEffect(() => {
+    const fetchTasks = async () => {
+      if (!selectedUserId) return;
+
+      setLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(
+          `http://192.168.100.11:5000/api/tasks/userID?userId=${selectedUserId}`
+        );
+
+        if (!response.ok) {
+          throw new Error('Nepodarilo sa načítať úlohy.');
+        }
+
+        const data: TTask[] = await response.json();
+        setTasks(data);
+      } catch (err: any) {
+        setError(err.message || 'Neznáma chyba');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTasks();
+  }, [selectedUserId]);
+
+  const handlePress = () => {
+    router.push({
+      pathname: './TasksForUserPage',
+    });
+  };
 
   return (
     <View className="p-2">
       <TouchableOpacity
         className="bg-greenPalette-600 rounded-lg px-4 py-2 active:bg-green-700"
-        onPress={() =>
-          router.push({
-            pathname: './TasksForUserPage',
-            params: { username },
-          })
-        }
+        onPress={handlePress}
+        disabled={loading || !!error}
       >
-        <Text className="text-2xl font-semibold text-green-100 text-center">
-          Naplánovane Úlohy: {tasksCount}
-        </Text>
+        {loading ? (
+          <ActivityIndicator size="small" color="#ffffff" />
+        ) : error ? (
+          <Text className="text-red-200 text-center text-xl">{error}</Text>
+        ) : (
+          <Text className="text-2xl font-semibold text-green-100 text-center">
+            Naplánované úlohy: {tasks.length}
+          </Text>
+        )}
       </TouchableOpacity>
     </View>
   );

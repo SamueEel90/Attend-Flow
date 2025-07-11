@@ -24,7 +24,7 @@ const MiniCard: React.FC<ShiftChangeCardProps> = ({ user }) => {
 
   return (
     <View className={clsx('rounded-lg p-4 mb-3 shadow-lg mx-2', backgroundColor, borderColor)}>
-      {/* Date/Time Header */}
+      
       <View className="flex-row justify-between mb-2 pb-2 border-b border-gray-600">
         <Text className="text-sm font-medium text-gray-400">Dátum</Text>
         <Text className="text-sm font-medium text-gray-400">Čas</Text>

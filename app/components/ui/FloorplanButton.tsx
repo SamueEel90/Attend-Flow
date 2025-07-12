@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-const OnFloorRedirectButton: React.FC = () => {
+const FloorplanButton: React.FC = () => {
     return (
       <TouchableOpacity onPress={() => {
         router.push('./FloorplanPage');
@@ -12,4 +12,4 @@ const OnFloorRedirectButton: React.FC = () => {
     );
 };
 
-export default OnFloorRedirectButton;
+export default FloorplanButton;

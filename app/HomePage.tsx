@@ -82,11 +82,10 @@ const Home = () => {
       <SearchByAction selectedAction={selectedAction} onChange={setSelectedAction} />
 <TouchableOpacity
       onPress={() => setAreAllMinimized(prev => !prev)}
-      className=" bg-greenPalette-600 rounded-lg py-2 px-4 self-center mb-6"
+      className=" bg-greenPalette-600 rounded-2xl py-2 px-4 self-center mb-6"
     >
       <Text className="text-white font-semibold text-center">
-        {areAllMinimized ? 'Zbaliť' : 'Rozbaliť'}
-      </Text>
+        {areAllMinimized ? 'Rozbaliť' : 'Zbaliť' }</Text>
     </TouchableOpacity>
       <View>
         {sortedInteractions.length === 0 ? (

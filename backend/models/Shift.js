@@ -22,6 +22,10 @@ const shiftSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  department: {
+    type: String,
+    required: false,
+  },
   breakTime: {
     type: Number,      
     required: true,

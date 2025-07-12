@@ -1,11 +1,12 @@
+import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import FloorplanShiftCard from './components/cards/FloorplanShiftCard';
+import Floorplan from './components/cards/Floorplan';
 import { useSelectedDate } from './context/SelectedDateContext';
 import TShift from './types/shift';
 
-const Floorplan = () => {
-  const { date } = useSelectedDate();
+const FloorplanPage= () => {
+  const { date, setDate } = useSelectedDate();
   const [shifts, setShifts] = useState<TShift[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +31,7 @@ const Floorplan = () => {
 
   if (loading) {
     return (
-      <View>
+      <View className='flex-1 items-center justify-center bg-background'>
         <Text>Načítavam zmeny...</Text>
       </View>
     );
@@ -38,23 +39,58 @@ const Floorplan = () => {
 
   if (shifts.length === 0) {
     return (
-      <View>
-        <Text>Žiadne zmeny pre vybraný dátum.</Text>
+      <View className='flex-1 items-center justify-center bg-background'>
+        <Text className='text-greenPalette-600'>Žiadne zmeny pre vybraný dátum skus iny datum.</Text>
+          <View className="mt-20">
+          <DateTimePicker
+          
+            value={date}
+            mode="date"
+            display="default"
+            onChange={(_, selectedDate) => {
+              if (selectedDate) setDate(selectedDate);
+            }}
+          />
+         </View>
+      </View>
+    );
+  }
+if(Error()) {
+    return (
+      <View className='flex-1 items-center justify-center bg-background'>
+        <Text className='text-red-500'>Chyba pri načítaní zmien. Skúste to prosím neskôr.</Text>
       </View>
     );
   }
 
-return (
-  <ScrollView>
-    <Text className="text-2xl font-bold mt-20 mb-4">Zmeny pre {date.toLocaleDateString('sk-SK')}</Text>
-    {shifts
-      .slice() // create a copy so original state isn't mutated
-      .sort((a, b) => new Date(a.shiftStart).getTime() - new Date(b.shiftStart).getTime())
-      .map((shift) => (
-        <FloorplanShiftCard key={shift._id} shift={shift} />
-      ))}
-  </ScrollView>
-);
+  
+  const sortedShifts = shifts
+    .slice()
+    .sort((a, b) => new Date(a.shiftStart).getTime() - new Date(b.shiftStart).getTime());
+
+  return (
+    <ScrollView className='bg-background '  >
+      
+      
+        <View className="flex-row items-center justify-center gap-2">
+          <Text className="text-2xl text-center font-bold mt-20  text-greenPalette-50">
+        Floorplan
+        </Text>
+        <View className="mt-20">
+          <DateTimePicker
+          
+            value={date}
+            mode="date"
+            display="default"
+            onChange={(_, selectedDate) => {
+              if (selectedDate) setDate(selectedDate);
+            }}
+          />
+         </View>
+        </View>
+      <Floorplan shifts={sortedShifts} />
+    </ScrollView>
+  );
 };
 
-export default Floorplan;
+export default FloorplanPage;

@@ -15,7 +15,7 @@ interface ShiftChangeCardProps {
 
 const InteractionCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) => {
   const { setSelectedUserId } = useSelectedUser();
-
+  const { setSelectedUsername } = useSelectedUser();
   const date = new Date(user.timestamp);
   const formattedDate = date.toLocaleDateString(undefined, {
     day: '2-digit',
@@ -27,6 +27,7 @@ const InteractionCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) 
 
   const handlePress = () => {
     setSelectedUserId(String(user.userId));
+    setSelectedUsername(user.name);
     router.push({
       pathname: './UserShiftPage',
       params: { userId: String(user.userId) },

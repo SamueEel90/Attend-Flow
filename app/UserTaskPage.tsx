@@ -7,6 +7,7 @@ import TTask from './types/task';
 
 const UserTaskPage = () => {
   const { selectedUserId } = useSelectedUser();
+  const { selectedUsername } = useSelectedUser();
   const [tasks, setTasks] = useState<TTask[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,13 +42,11 @@ const UserTaskPage = () => {
 
   return (
     <ScrollView className="flex-1 bg-background p-4">
-      <Text className="text-2xl font-semibold text-greenPalette-300 text-center mt-20">
-        Týždenné úlohy {selectedUserId ?? ''}
+      <Text className="text-2xl font-semibold text-greenPalette-50 text-center mt-20 mb-10">
+        Týždenné úlohy
+       <Text className='text-4xl'> {selectedUsername ? `\n${selectedUsername}` : ''}</Text>
       </Text>
-      <Text className="text-xl font-semibold text-greenPalette-600 text-center mb-4">
-        Potiahnutím doľava označíte úlohu ako hotovú.
-      </Text>
-
+     
       {loading ? (
         <ActivityIndicator size="large" color="#16a34a" className="mt-10" />
       ) : error ? (

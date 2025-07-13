@@ -1,6 +1,8 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 
 interface SelectedUserContextType {
+  selectedUsername: string | null;
+  setSelectedUsername: (username: string | null) => void;
   selectedUserId: string | null;
   setSelectedUserId: (id: string | null) => void;
 }
@@ -9,9 +11,17 @@ const SelectedUserContext = createContext<SelectedUserContextType | undefined>(u
 
 export const SelectedUserProvider = ({ children }: { children: ReactNode }) => {
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [selectedUsername, setSelectedUsername] = useState<string | null>(null);
 
   return (
-    <SelectedUserContext.Provider value={{ selectedUserId, setSelectedUserId }}>
+    <SelectedUserContext.Provider
+      value={{
+        selectedUserId,
+        setSelectedUserId,
+        selectedUsername,
+        setSelectedUsername,
+      }}
+    >
       {children}
     </SelectedUserContext.Provider>
   );

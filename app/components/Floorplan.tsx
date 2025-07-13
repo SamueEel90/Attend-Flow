@@ -68,7 +68,7 @@ const Floorplan: React.FC<FloorplanProps> = ({ shifts }) => {
                   alignItems: 'center',
                 }}
               >
-                <Text className="text-gray-400 font-bold text-[14px]">
+                <Text className="text-white  text-lg">
                   {hour}
                 </Text>
                 <View
@@ -84,18 +84,7 @@ const Floorplan: React.FC<FloorplanProps> = ({ shifts }) => {
                 />
               </View>
             ))}
-            <View
-              className="bg-gray-300"
-              style={{
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                top: 22,
-                height: 3,
-                borderRadius: 6,
-                zIndex: 0,
-              }}
-            />
+            
           </View>
         </View>
       </View>

@@ -6,5 +6,4 @@ type TEmployee = {
   department: string;
   employeeNumber: number;
 };
-
 export default TEmployee;

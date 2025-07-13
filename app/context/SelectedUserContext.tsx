@@ -24,3 +24,4 @@ export const useSelectedUser = () => {
   }
   return context;
 };
+export default SelectedUserContext;

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import MiniCard from './components/cards/MiniCard';
-import UserTasksCount from './components/ui/UserTasksCount';
+import MiniCard from './components/cards/MiniInteractionCard';
+import UserTasksCount from './components/ui/UserTaskButton';
 import { useSelectedDate } from './context/SelectedDateContext';
 import { useSelectedUser } from './context/SelectedUserContext';
 import TCardInteraction from './types/cardInteraction';

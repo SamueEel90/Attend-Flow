@@ -13,7 +13,7 @@ interface ShiftChangeCardProps {
   isMinimized: boolean;  
 }
 
-const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) => {
+const InteractionCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) => {
   const { setSelectedUserId } = useSelectedUser();
 
   const date = new Date(user.timestamp);
@@ -108,4 +108,4 @@ const ShiftChangeCard: React.FC<ShiftChangeCardProps> = ({ user, isMinimized }) 
   );
 };
 
-export default ShiftChangeCard;
+export default InteractionCard;

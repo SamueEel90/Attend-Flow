@@ -5,7 +5,7 @@ import TaskCard from './components/cards/TaskCard';
 import { useSelectedUser } from './context/SelectedUserContext';
 import TTask from './types/task';
 
-const TasksForUserPage = () => {
+const UserTaskPage = () => {
   const { selectedUserId } = useSelectedUser();
   const [tasks, setTasks] = useState<TTask[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -64,12 +64,12 @@ const TasksForUserPage = () => {
           </Text>
         </View>
       ) : (
-        tasks.map((task, index) => (
-          <TaskCard key={task._id ?? index} task={task} index={index} />
+        tasks.map((task) => (
+          <TaskCard key={task._id} task={task} />
         ))
       )}
     </ScrollView>
   );
 };
 
-export default TasksForUserPage;
+export default UserTaskPage;

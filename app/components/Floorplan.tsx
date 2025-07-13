@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import TShift from '../../types/shift';
+import TShift from '../types/shift';
 
 type FloorplanProps = {
   shifts: TShift[];

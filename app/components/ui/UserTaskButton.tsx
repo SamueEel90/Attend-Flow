@@ -5,7 +5,7 @@ import { useSelectedUser } from '../../context/SelectedUserContext';
 import TTask from '../../types/task';
 
 
-const UserTasksCount: React.FC = () => {
+const UserTasksButton: React.FC = () => {
   const { selectedUserId } = useSelectedUser();
   const [tasks, setTasks] = useState<TTask[]>([]);
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,7 @@ const UserTasksCount: React.FC = () => {
 
   const handlePress = () => {
     router.push({
-      pathname: './TasksForUserPage',
+      pathname: './UserTaskPage',
     });
   };
 
@@ -66,4 +66,4 @@ const UserTasksCount: React.FC = () => {
   );
 };
 
-export default UserTasksCount;
+export default UserTasksButton;

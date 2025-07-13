@@ -1,7 +1,7 @@
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import Floorplan from './components/cards/Floorplan';
+import Floorplan from './components/Floorplan';
 import { useSelectedDate } from './context/SelectedDateContext';
 import TShift from './types/shift';
 
@@ -55,13 +55,7 @@ const FloorplanPage= () => {
       </View>
     );
   }
-if(Error()) {
-    return (
-      <View className='flex-1 items-center justify-center bg-background'>
-        <Text className='text-red-500'>Chyba pri načítaní zmien. Skúste to prosím neskôr.</Text>
-      </View>
-    );
-  }
+
 
   
   const sortedShifts = shifts
